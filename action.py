@@ -33,7 +33,7 @@ def move_file(source, destination):
 
 
 # Ask the user for their choice
-user_choice = input("Choose: magisk or playintegrityfix or lsposed:   ")
+user_choice = input("Choose: magisk , ksu , playintegrityfix , lsposed:   ")
 
 #Lsposed
 if user_choice == "lsposed":
@@ -77,6 +77,19 @@ if user_choice =="playintegrityfix":
     else:
        print("Failed to download Magisk. Please try again later")
 
+#ksu
+if user_choice =="ksu":
+  url="https://github.com/backslashxx/KernelSU/releases/download>
+  file_name="KernelSU_v1.0.2-6_11991-magic-release.apk"
+  download_file(url, file_name)
+
+  if check_file_exists(file_name):
+     print("###### kernel su downloaded#####")
+     source=file_name
+     destination="/storage/emulated/0/Download/"
+     move_file(source, destination)
+  else:
+     print("Failed to download ksu. Please try again later")
 else:
     print("Invalid choice. Please choose either magisk or lsposed or playintegrityfix")
     exit(1)
