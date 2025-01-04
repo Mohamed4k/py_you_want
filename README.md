@@ -9,6 +9,6 @@ Feature:
 - more soon...
 
 Requirements:
-use termux or another terminal 
-work only in android 
+- use termux or another terminal
+- work only in android
 
