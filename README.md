@@ -6,6 +6,7 @@ Feature:
 - lsposed
 - magisk (lastest)
 - play integrity fix
+- kernel su 
 - more soon...
 
 Requirements:
