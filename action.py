@@ -48,7 +48,7 @@ def move_file(source, destination):
         print("Permissions denied to move the file.")
 
 # Ask the user for their choice
-user_choice = input("Choose: magisk , ksu , playintegrityfix , lsposed:   ")
+user_choice = input("Choose: magisk, ksu, playintegrityfix, lsposed, adaway, fdroid, newpipe:   ")
 
 # Lsposed
 if user_choice == "lsposed":
@@ -126,6 +126,63 @@ elif user_choice == "ksu":
     else:
         print("Failed to download KernelSU. Please try again later.")
 
+# AdAway
+elif user_choice == "adaway":
+    url = "https://github.com/AdAway/AdAway/releases/download/v6.1.4/AdAway-6.1.4-20241027.apk"
+    file_name = "AdAway-6.1.4-20241027.apk"
+
+    # Create a backup if the file already exists
+    if check_file_exists(file_name):
+        create_backup(file_name)
+
+    download_file(url, file_name)
+
+    if check_file_exists(file_name):
+        print("#### AdAway downloaded successfully####")
+        source = file_name
+        destination = "/storage/emulated/0/Download/"
+        move_file(source, destination)
+    else:
+        print("Failed to download AdAway. Please try again later.")
+
+# F-Droid
+elif user_choice == "fdroid":
+    url = "https://f-droid.org/F-Droid.apk"
+    file_name = "F-Droid.apk"
+
+    # Create a backup if the file already exists
+    if check_file_exists(file_name):
+        create_backup(file_name)
+
+    download_file(url, file_name)
+
+    if check_file_exists(file_name):
+        print("#### F-Droid downloaded successfully####")
+        source = file_name
+        destination = "/storage/emulated/0/Download/"
+        move_file(source, destination)
+    else:
+        print("Failed to download F-Droid. Please try again later.")
+
+# NewPipe
+elif user_choice == "newpipe":
+    url = "https://github.com/TeamNewPipe/NewPipe/releases/download/v0.25.1/NewPipe_v0.25.1.apk"
+    file_name = "NewPipe_v0.25.1.apk"
+
+    # Create a backup if the file already exists
+    if check_file_exists(file_name):
+        create_backup(file_name)
+
+    download_file(url, file_name)
+
+    if check_file_exists(file_name):
+        print("#### NewPipe downloaded successfully####")
+        source = file_name
+        destination = "/storage/emulated/0/Download/"
+        move_file(source, destination)
+    else:
+        print("Failed to download NewPipe. Please try again later.")
+
 else:
-    print("Invalid choice. Please choose either magisk, lsposed, playintegrityfix, or ksu.")
+    print("Invalid choice. Please choose either magisk, ksu, playintegrityfix, lsposed, adaway, fdroid, or newpipe.")
     exit(1)
